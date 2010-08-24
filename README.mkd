@@ -1,0 +1,61 @@
+
+
+# Web::Action::Dispatcher
+
+    under '/action';
+
+
+    # DSL for defining action parameters
+
+    on 'login' => params {
+
+        param 'username' => ( 
+            isa => 'Str' , 
+            validator => sub {  },   # will be a backend validator
+            default => sub { "test" } );
+
+        param 'password' => (
+            isa => 'Str',
+            validator => 'password',
+            default => sub {  });
+        
+        param 'role' => (
+            isa => 'Int'
+            validator => sub {  });
+
+    } run {
+        my ($self,$args) = @_;
+
+        $args->{username} ... 
+        $args->{password} ...
+
+    };
+
+And this will generate JS functions:
+
+    actionLogin(
+            { username: jQuery('#username').val() , password: jQuery('#password').val() } , 
+
+            // jQuery ajax params
+            { success: ... , error: ... } );
+
+Like this:
+
+    function actionLogin( ... ) {
+        // front-end validators 
+
+        // back-end validators
+        .... send data to /action/login/validator ...
+
+        // do action request
+        $.ajax( ... );
+    }
+
+In the form:
+
+    <form onsubmit="return actionLogin(formData(this), { success: ... , error: ... } )" ...>
+
+Or:
+
+    <form onsubmit="return actionLogin( formData(this,{ 'username':'input[name=username]', ... }), {  } )" ...>
+
