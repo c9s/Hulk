@@ -1,8 +1,8 @@
 use inc::Module::Install;
 
-name     'Web-Action-Dispatcher';
-all_from 'lib/Web/Action/Dispatcher.pm';
-author   q{Cornelius <cornelius.howl_at_gmail.com>};
+name     'Hulk';
+all_from 'lib/Hulk.pm';
+author   q{Cornelius (c9s) <cornelius.howl_at_gmail.com>};
 license  'perl';
 
 build_requires 'Test::More';

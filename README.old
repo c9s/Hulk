@@ -26,7 +26,7 @@ SUPPORT AND DOCUMENTATION
 After installing, you can find documentation for this module with the
 perldoc command.
 
-    perldoc Web::Action::Dispatcher
+    perldoc Hulk
 
 You can also look for information at:
 
