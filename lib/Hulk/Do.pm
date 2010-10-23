@@ -44,6 +44,15 @@ sub success {
 	return $self;
 }
 
+sub also_do {
+    my ( $self, $action, $args ) = @_;
+    my $hulk = Hulk::Runner->new( debug => 1 );
+    if ( $hulk->can_run($action) ) {
+        return $hulk->start( $action, $args );
+    }
+    die 'Action not found.';
+}
+
 sub error {
     my ( $self, $message ) = @_;
 	$self->result(
