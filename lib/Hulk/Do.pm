@@ -7,7 +7,12 @@ use Hulk::Result;
 
 =head1 NAME
 
-Hulk::Do
+Hulk::Do - Hulk Action Base Class.
+
+=head1 DESCRIPTION
+
+
+
 
 =head1 SYNOPSIS
 
@@ -49,7 +54,7 @@ Declarative way:
     };
 
 
-=head2 DESCRIPTION
+
 
 =cut
 
