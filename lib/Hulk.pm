@@ -8,6 +8,8 @@ use Hulk::Runner;
 use Hulk::Declare;
 
 
+our $VERSION = 0.0.1;
+
 
 
 1;

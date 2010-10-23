@@ -36,11 +36,10 @@ sub success {
 	$data ||= {};
 	$self->result(
 		Hulk::Result->new(
-			success  => 1,
-			message  => $message,
+			success   => 1,
+			message   => $message,
 			do_object => $self,
-			data     => $data,
-		));
+			data      => $data ));
 	return $self;
 }
 
