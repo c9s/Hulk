@@ -4,6 +4,55 @@ use strict;
 use Any::Moose;
 use Hulk::Result;
 
+
+=head1 NAME
+
+Hulk::Do
+
+=head1 SYNOPSIS
+
+To write your own action:
+
+    package Hulk::Do::StopService;
+    use warnings;
+    use strict;
+    use Any::Moose;
+    extends qw(Hulk::Do);
+
+    sub run {
+        my $self = shift;
+        my $args = $self->args;
+
+        my $id = $args->{id};
+
+        return $self->error( "Serivce id required." ) unless $id;
+
+
+        # ... do something
+
+        ...
+
+        # ... do other stuff
+        my $ret = $self->also_do( 'StopOtherService' , { arg1 => ... , arg2 => ... } );
+
+        return $self->success( "Service stopped." );
+    }
+
+    1;
+
+Declarative way:
+
+    use Hulk::Declare;
+
+    mount 'StopService' => '/action/path' => run {
+
+    };
+
+
+=head2 DESCRIPTION
+
+=cut
+
 has name => (
 	is  => 'rw' ,
 	isa => 'Str' );
