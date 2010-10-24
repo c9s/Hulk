@@ -7,6 +7,8 @@ license  'perl';
 
 build_requires 'Test::More';
 requires 'Any::Moose';
+requires 'JSON::XS';
+
 auto_install;
 
 WriteAll;
